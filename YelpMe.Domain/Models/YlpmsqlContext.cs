@@ -36,8 +36,8 @@ public partial class YlpmsqlContext : DbContext
     public virtual DbSet<WhatsAppIntergation> WhatsAppIntergations { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("workstation id=ylpmsql.mssql.somee.com;packet size=4096;user id=yelpme1_SQLLogin_1;pwd=v6g3sy87a5;data source=ylpmsql.mssql.somee.com;persist security info=False;initial catalog=ylpmsql;TrustServerCertificate=True");
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("workstation id=TWSVnetDatabas.mssql.somee.com;packet size=4096;user id=Qhama_SQLLogin_1;pwd=6hl5oawm98;data source=TWSVnetDatabas.mssql.somee.com;persist security info=False;initial catalog=TWSVnetDatabas;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
