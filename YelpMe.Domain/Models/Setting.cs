@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace YelpMe.Domain.Models;
 
-public partial class Setting 
+public class Setting : BaseEntity
 {
-    public int Id { get; set; }
-
     public bool SearchOffline { get; set; }
 
     public bool UseNameApi { get; set; }

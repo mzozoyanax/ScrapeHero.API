@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace YelpMe.Domain.Models;
 
-public class Template 
+public class Template : BaseEntity
 {
-    public int Id { get; set; }
-
     public string? Name { get; set; }
 
     public string? Subject { get; set; }

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace YelpMe.Domain.Models;
 
-public class Business 
+public class Business : BaseEntity
 {
-    public int Id { get; set; }
-
     public string? Name { get; set; }
 
     public string? Email { get; set; }
@@ -36,6 +34,4 @@ public class Business
     public string? PersonalLine { get; set; }
 
     public bool Sent { get; set; }
-
-    public DateTime AddedDate { get; set; }
 }

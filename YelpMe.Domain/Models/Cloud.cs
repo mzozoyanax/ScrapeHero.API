@@ -3,9 +3,7 @@ using System.Collections.Generic;
 
 namespace YelpMe.Domain.Models;
 
-public partial class Cloud 
+public class Cloud  : BaseEntity
 {
-    public int Id { get; set; }
-
     public string? Url { get; set; }
 }

@@ -26,7 +26,9 @@ namespace YelpMe.Domain.Migrations
                     ImapPort = table.Column<int>(type: "int", nullable: false),
                     StmpSsl = table.Column<bool>(type: "bit", nullable: false),
                     ImapSsl = table.Column<bool>(type: "bit", nullable: false),
-                    Signature = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Signature = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,7 +42,8 @@ namespace YelpMe.Domain.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,7 +71,8 @@ namespace YelpMe.Domain.Migrations
                     Keywords = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PersonalLine = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Sent = table.Column<bool>(type: "bit", nullable: false),
-                    AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,7 +85,9 @@ namespace YelpMe.Domain.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Url = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,7 +100,9 @@ namespace YelpMe.Domain.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ApiKey = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ApiKey = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -110,7 +118,9 @@ namespace YelpMe.Domain.Migrations
                     SelectApiKeyId = table.Column<int>(type: "int", nullable: false),
                     UseMultipleKeys = table.Column<bool>(type: "bit", nullable: false),
                     ValidEmail = table.Column<bool>(type: "bit", nullable: false),
-                    HumanNameEmails = table.Column<bool>(type: "bit", nullable: false)
+                    HumanNameEmails = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -126,7 +136,9 @@ namespace YelpMe.Domain.Migrations
                     SearchOffline = table.Column<bool>(type: "bit", nullable: false),
                     UseNameApi = table.Column<bool>(type: "bit", nullable: false),
                     FacebookPixelInstalled = table.Column<bool>(type: "bit", nullable: false),
-                    HasYouTubeChannel = table.Column<bool>(type: "bit", nullable: false)
+                    HasYouTubeChannel = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -142,7 +154,9 @@ namespace YelpMe.Domain.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Subject = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Body = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HtmlMode = table.Column<bool>(type: "bit", nullable: false)
+                    HtmlMode = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -156,7 +170,9 @@ namespace YelpMe.Domain.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Valid = table.Column<bool>(type: "bit", nullable: false)
+                    Valid = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -170,7 +186,9 @@ namespace YelpMe.Domain.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     InstanceId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ApiTokenInstance = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ApiTokenInstance = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

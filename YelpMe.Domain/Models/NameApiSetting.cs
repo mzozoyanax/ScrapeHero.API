@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace YelpMe.Domain.Models;
 
-public partial class NameApiSetting
+public class NameApiSetting : BaseEntity
 {
-    public int Id { get; set; }
-
     public int SelectApiKeyId { get; set; }
 
     public bool UseMultipleKeys { get; set; }

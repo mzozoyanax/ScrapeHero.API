@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace YelpMe.Domain.Models;
 
-public class Account 
+public class Account : BaseEntity
 {
-    public int Id { get; set; }
-
     public string UserName { get; set; } = null!;
 
     public string Email { get; set; } = null!;

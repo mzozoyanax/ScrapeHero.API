@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
+using YelpMe.Domain;
 using YelpMe.Domain.Constants;
 using YelpMe.Domain.Models;
 using YelpMe.Domain.ViewModels;
@@ -17,7 +18,7 @@ namespace YelpMe.Repository
 {
     public class ScrapeRepository : IScrapeRepository
     {
-        private YlpmsqlContext appDbContext = new YlpmsqlContext();
+        private AppDbContext appDbContext = new AppDbContext();
         private Setting setting = new Setting();
         private NameApiSetting nameApiSettings = new NameApiSetting();
         private NameApiRepository nameAPIRepo = new NameApiRepository();
@@ -600,7 +601,7 @@ namespace YelpMe.Repository
 
                                     if (accerelateModel == true)
                                     {
-                                        var query = appDbContext.Businesses.Where(x => x.Email == email).FirstOrDefault();
+                                        var query = appDbContext.Business.Where(x => x.Email == email).FirstOrDefault();
 
                                         if (query == null)
                                         {
@@ -620,7 +621,6 @@ namespace YelpMe.Repository
                                             business.Company = await GetCompanyName(profileUrl);
                                             business.PersonalLine = "";
                                             business.Sent = false;
-                                            business.AddedDate = DateTime.Now;
 
                                             if (facebookPixel == true)
                                             {
@@ -632,7 +632,7 @@ namespace YelpMe.Repository
                                                 business.YouTubeChannel = await GetYouTubeChannel(websiteUrl);
                                             }
 
-                                            appDbContext.Businesses.Add(business);
+                                            appDbContext.Business.Add(business);
                                             appDbContext.SaveChanges();
                                         }
                                     }
@@ -640,7 +640,7 @@ namespace YelpMe.Repository
                                     {
                                         if (email != "")
                                         {
-                                            var query = appDbContext.Businesses.Where(x => x.Email == email).FirstOrDefault();
+                                            var query = appDbContext.Business.Where(x => x.Email == email).FirstOrDefault();
 
                                             if (query == null)
                                             {
@@ -721,9 +721,8 @@ namespace YelpMe.Repository
                                                                                     business.Company = await GetCompanyName(profileUrl);
                                                                                     business.PersonalLine = "";
                                                                                     business.Sent = false;
-                                                                                    business.AddedDate = DateTime.Now;
 
-                                                                                    appDbContext.Businesses.Add(business);
+                                                                                    appDbContext.Business.Add(business);
                                                                                     appDbContext.SaveChanges();
                                                                                 }
                                                                             }
@@ -745,9 +744,8 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -778,9 +776,8 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -823,9 +820,8 @@ namespace YelpMe.Repository
                                                                                         business.Company = await GetCompanyName(profileUrl);
                                                                                         business.PersonalLine = "";
                                                                                         business.Sent = false;
-                                                                                        business.AddedDate = DateTime.Now;
 
-                                                                                        appDbContext.Businesses.Add(business);
+                                                                                        appDbContext.Business.Add(business);
                                                                                         appDbContext.SaveChanges();
                                                                                     }
                                                                                 }
@@ -847,9 +843,8 @@ namespace YelpMe.Repository
                                                                                     business.Company = await GetCompanyName(profileUrl);
                                                                                     business.PersonalLine = "";
                                                                                     business.Sent = false;
-                                                                                    business.AddedDate = DateTime.Now;
 
-                                                                                    appDbContext.Businesses.Add(business);
+                                                                                    appDbContext.Business.Add(business);
                                                                                     appDbContext.SaveChanges();
                                                                                 }
                                                                             }
@@ -880,9 +875,8 @@ namespace YelpMe.Repository
                                                                                     business.Company = await GetCompanyName(profileUrl);
                                                                                     business.PersonalLine = "";
                                                                                     business.Sent = false;
-                                                                                    business.AddedDate = DateTime.Now;
 
-                                                                                    appDbContext.Businesses.Add(business);
+                                                                                    appDbContext.Business.Add(business);
                                                                                     appDbContext.SaveChanges();
                                                                                 }
                                                                             }
@@ -941,9 +935,8 @@ namespace YelpMe.Repository
                                                                                     business.Company = await GetCompanyName(profileUrl);
                                                                                     business.PersonalLine = "";
                                                                                     business.Sent = false;
-                                                                                    business.AddedDate = DateTime.Now;
 
-                                                                                    appDbContext.Businesses.Add(business);
+                                                                                    appDbContext.Business.Add(business);
                                                                                     appDbContext.SaveChanges();
                                                                                 }
                                                                             }
@@ -965,9 +958,8 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -998,9 +990,8 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -1043,9 +1034,8 @@ namespace YelpMe.Repository
                                                                                         business.Company = await GetCompanyName(profileUrl);
                                                                                         business.PersonalLine = "";
                                                                                         business.Sent = false;
-                                                                                        business.AddedDate = DateTime.Now;
 
-                                                                                        appDbContext.Businesses.Add(business);
+                                                                                        appDbContext.Business.Add(business);
                                                                                         appDbContext.SaveChanges();
                                                                                     }
                                                                                 }
@@ -1069,9 +1059,8 @@ namespace YelpMe.Repository
                                                                                     business.Company = await GetCompanyName(profileUrl);
                                                                                     business.PersonalLine = "";
                                                                                     business.Sent = false;
-                                                                                    business.AddedDate = DateTime.Now;
 
-                                                                                    appDbContext.Businesses.Add(business);
+                                                                                    appDbContext.Business.Add(business);
                                                                                     appDbContext.SaveChanges();
                                                                                 }
                                                                             }
@@ -1102,9 +1091,9 @@ namespace YelpMe.Repository
                                                                                     business.Company = await GetCompanyName(profileUrl);
                                                                                     business.PersonalLine = "";
                                                                                     business.Sent = false;
-                                                                                    business.AddedDate = DateTime.Now;
+                                                                                    
 
-                                                                                    appDbContext.Businesses.Add(business);
+                                                                                    appDbContext.Business.Add(business);
                                                                                     appDbContext.SaveChanges();
                                                                                 }
                                                                             }
@@ -1133,7 +1122,7 @@ namespace YelpMe.Repository
                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                 business.PersonalLine = "";
                                                                 business.Sent = false;
-                                                                business.AddedDate = DateTime.Now;
+                                                                
 
                                                                 if (facebookPixel == true)
                                                                 {
@@ -1145,7 +1134,7 @@ namespace YelpMe.Repository
                                                                     business.YouTubeChannel = await GetYouTubeChannel(websiteUrl);
                                                                 }
 
-                                                                appDbContext.Businesses.Add(business);
+                                                                appDbContext.Business.Add(business);
                                                                 appDbContext.SaveChanges();
 
                                                             }
@@ -1172,9 +1161,9 @@ namespace YelpMe.Repository
                                                                     business.Company = await GetCompanyName(profileUrl);
                                                                     business.PersonalLine = "";
                                                                     business.Sent = false;
-                                                                    business.AddedDate = DateTime.Now;
+                                                                    
 
-                                                                    appDbContext.Businesses.Add(business);
+                                                                    appDbContext.Business.Add(business);
                                                                     appDbContext.SaveChanges();
                                                                 }
                                                             }
@@ -1254,9 +1243,9 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
+                                                                                
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -1278,9 +1267,8 @@ namespace YelpMe.Repository
                                                                             business.Company = await GetCompanyName(profileUrl);
                                                                             business.PersonalLine = "";
                                                                             business.Sent = false;
-                                                                            business.AddedDate = DateTime.Now;
 
-                                                                            appDbContext.Businesses.Add(business);
+                                                                            appDbContext.Business.Add(business);
                                                                             appDbContext.SaveChanges();
                                                                         }
                                                                     }
@@ -1311,9 +1299,9 @@ namespace YelpMe.Repository
                                                                             business.Company = await GetCompanyName(profileUrl);
                                                                             business.PersonalLine = "";
                                                                             business.Sent = false;
-                                                                            business.AddedDate = DateTime.Now;
+                                                                            
 
-                                                                            appDbContext.Businesses.Add(business);
+                                                                            appDbContext.Business.Add(business);
                                                                             appDbContext.SaveChanges();
                                                                         }
                                                                     }
@@ -1356,9 +1344,9 @@ namespace YelpMe.Repository
                                                                                     business.Company = await GetCompanyName(profileUrl);
                                                                                     business.PersonalLine = "";
                                                                                     business.Sent = false;
-                                                                                    business.AddedDate = DateTime.Now;
+                                                                                    
 
-                                                                                    appDbContext.Businesses.Add(business);
+                                                                                    appDbContext.Business.Add(business);
                                                                                     appDbContext.SaveChanges();
                                                                                 }
                                                                             }
@@ -1380,9 +1368,8 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -1413,9 +1400,9 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
+                                                                                
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -1474,9 +1461,9 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
+                                                                                
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -1498,9 +1485,9 @@ namespace YelpMe.Repository
                                                                             business.Company = await GetCompanyName(profileUrl);
                                                                             business.PersonalLine = "";
                                                                             business.Sent = false;
-                                                                            business.AddedDate = DateTime.Now;
+                                                                            
 
-                                                                            appDbContext.Businesses.Add(business);
+                                                                            appDbContext.Business.Add(business);
                                                                             appDbContext.SaveChanges();
                                                                         }
                                                                     }
@@ -1531,9 +1518,9 @@ namespace YelpMe.Repository
                                                                             business.Company = await GetCompanyName(profileUrl);
                                                                             business.PersonalLine = "";
                                                                             business.Sent = false;
-                                                                            business.AddedDate = DateTime.Now;
+                                                                            
 
-                                                                            appDbContext.Businesses.Add(business);
+                                                                            appDbContext.Business.Add(business);
                                                                             appDbContext.SaveChanges();
                                                                         }
                                                                     }
@@ -1576,9 +1563,9 @@ namespace YelpMe.Repository
                                                                                     business.Company = await GetCompanyName(profileUrl);
                                                                                     business.PersonalLine = "";
                                                                                     business.Sent = false;
-                                                                                    business.AddedDate = DateTime.Now;
+                                                                                    
 
-                                                                                    appDbContext.Businesses.Add(business);
+                                                                                    appDbContext.Business.Add(business);
                                                                                     appDbContext.SaveChanges();
                                                                                 }
                                                                             }
@@ -1602,9 +1589,9 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
+                                                                                
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -1635,9 +1622,9 @@ namespace YelpMe.Repository
                                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                                 business.PersonalLine = "";
                                                                                 business.Sent = false;
-                                                                                business.AddedDate = DateTime.Now;
+                                                                                
 
-                                                                                appDbContext.Businesses.Add(business);
+                                                                                appDbContext.Business.Add(business);
                                                                                 appDbContext.SaveChanges();
                                                                             }
                                                                         }
@@ -1666,9 +1653,8 @@ namespace YelpMe.Repository
                                                             business.Company = await GetCompanyName(profileUrl);
                                                             business.PersonalLine = "";
                                                             business.Sent = false;
-                                                            business.AddedDate = DateTime.Now;
 
-                                                            appDbContext.Businesses.Add(business);
+                                                            appDbContext.Business.Add(business);
                                                             appDbContext.SaveChanges();
 
                                                         }
@@ -1695,9 +1681,8 @@ namespace YelpMe.Repository
                                                                 business.Company = await GetCompanyName(profileUrl);
                                                                 business.PersonalLine = "";
                                                                 business.Sent = false;
-                                                                business.AddedDate = DateTime.Now;
 
-                                                                appDbContext.Businesses.Add(business);
+                                                                appDbContext.Business.Add(business);
                                                                 appDbContext.SaveChanges();
                                                             }
                                                         }
@@ -1733,14 +1718,14 @@ namespace YelpMe.Repository
 
         public List<Business> GetBusiness()
         {
-            return appDbContext.Businesses.ToList();
+            return appDbContext.Business.ToList();
         }
 
         public bool UpdateBusiness(Business business)
         {
             try
             {
-                var query = appDbContext.Businesses.Where(x => x.Id == business.Id).FirstOrDefault();
+                var query = appDbContext.Business.Where(x => x.Id == business.Id).FirstOrDefault();
 
                 query.Keywords = business.Website;
                 query.Location = business.Location;
@@ -1754,7 +1739,6 @@ namespace YelpMe.Repository
                 query.Company = business.Location;
                 query.PersonalLine = business.Location;
                 query.Sent = business.Sent;
-                query.AddedDate = DateTime.Now;
 
                 appDbContext.SaveChanges();
             }
